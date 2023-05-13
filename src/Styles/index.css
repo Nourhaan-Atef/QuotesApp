@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .link {
+    @apply transition duration-200 text-xl font-bold rounded-xl px-2 py-1 bg-white text-DGreen hover:bg-DGreen hover:text-white;
+  }
+  .link.active {
+    @apply bg-DGreen text-white;
+  }
+}
