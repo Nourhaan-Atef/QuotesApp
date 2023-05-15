@@ -4,11 +4,8 @@ import logo from "../../assets/logo.svg";
 import menu from "../../assets/menu.svg";
 import close from "../../assets/close.svg";
 
-import search from "../../assets/search.svg";
-
 const Navbar = () => {
   const [showmenu, setShowMenu] = useState<boolean>(false);
-  const [showSearch, setShowSearch] = useState<boolean>(false);
 
   return (
     <>
@@ -52,12 +49,6 @@ const Navbar = () => {
           <NavLink to="/authors" className="link">
             authors
           </NavLink>
-          <img
-            src={search}
-            alt="Search Icon"
-            className="w-10 cursor-pointer rounded-full"
-            onClick={() => setShowSearch(!showSearch)}
-          />
         </section>
       ) : (
         ""
