@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { fetchAllQuotes } from "../../Middlewares/FetchAllQuotes/FetchAllQuotes";
 import { useAppDispatch, useAppSelector } from "../../Store/hooks";
 import { QouteState } from "../../Slices/Quotes";
-import Card from "../../Components/Card/Card";
+import Card from "../../Components/Card/QuoteCard";
 import { Quotes } from "../../Models/interfaces/quotes";
 
 const Home = () => {

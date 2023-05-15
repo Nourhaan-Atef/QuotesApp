@@ -19,7 +19,8 @@ const AuthorCard: React.FC<Props> = ({ AuthorsList }) => {
                 alt="quoteSymbol"
                 className="w-5 cursor-pointer"
               />
-              <p className="font-bold font-raleway capitalize italic underline">
+
+              <p className="font-bold font-raleway capitalize italic underline cursor-pointer">
                 {item.name}
               </p>
             </section>
