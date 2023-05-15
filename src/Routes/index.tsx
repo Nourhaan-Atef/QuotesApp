@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import RouteLayout from "../Pages/RouteLayout/RouteLayout";
 import Home from "../Pages/Home/Home";
 import Favorites from "../Pages/Favorites/Favorites";
-import Authors from "../Pages/Authors/Authors";
+import Authors from "../Pages/Authors/AuthorsPage";
 
 export const router = createBrowserRouter([
   {

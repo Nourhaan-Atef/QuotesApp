@@ -16,7 +16,7 @@ const Navbar = () => {
           <p className="font-pacifico font-bold text-xl text-DGreen">Quotes</p>
         </section>
         {/* Links */}
-        <section className="md:flex hidden items-center gap-5 font-medium text-lg capitalize ">
+        <section className="md:flex hidden items-center gap-5 font-medium text-lg capitalize font-raleway ">
           <NavLink to="/home" className="link">
             home
           </NavLink>
@@ -39,7 +39,7 @@ const Navbar = () => {
         </section>
       </div>
       {showmenu ? (
-        <section className="md:hidden flex flex-col items-center gap-5 font-medium text-lg capitalize pt-5 pb-10 ">
+        <section className="md:hidden flex flex-col items-center gap-5 font-medium text-lg capitalize py-5  ">
           <NavLink to="/home" className="link">
             home
           </NavLink>

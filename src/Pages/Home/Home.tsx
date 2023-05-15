@@ -26,13 +26,13 @@ const Home = () => {
   };
   return (
     <>
-      <h1 className="font-bold text-red-500 text-center text-2xl font-pacifico uppercase">
-        --- Quotes Page ---
+      <h1 className="font-bold text-red-500 text-center text-2xl font-pacifico underline uppercase mt-10">
+        -- Quotes Page --
       </h1>
       <div className="mt-10">
         <input
           type="search"
-          placeholder="Search........."
+          placeholder="Search about quote........."
           className="outline-none border-2 border-red-500 rounded-3xl px-5 md:py-3 py-2 md:w-96  w-full"
           onChange={(e) => setQuery(e.target.value)}
         />

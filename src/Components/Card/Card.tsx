@@ -1,10 +1,14 @@
+import { useState } from "react";
 import { Quotes } from "../../Models/interfaces/quotes";
 import quoteSymbol from "../../assets/quoteSymbol.png";
+import chossenStar from "../../assets/chossenStar.svg";
+import normalStar from "../../assets/normalStar.svg";
 
 interface Props {
   QuotesList: Quotes[];
 }
 const Card: React.FC<Props> = ({ QuotesList }) => {
+  const [fav, setFav] = useState(false);
   return (
     <>
       {QuotesList.map((item) => {
@@ -15,7 +19,13 @@ const Card: React.FC<Props> = ({ QuotesList }) => {
           >
             <section className="flex items-center justify-between text-red-500">
               <img src={quoteSymbol} alt="quoteSymbol" className="w-10" />
-              <p className="font-bold font-pacifico capitalize italic">
+              <img
+                src={`${fav ? chossenStar : normalStar}`}
+                alt="Fav Icon"
+                className="w-5 cursor-pointer"
+                onClick={() => setFav(!fav)}
+              />
+              <p className="font-bold font-raleway capitalize italic">
                 {item.author}
               </p>
             </section>
