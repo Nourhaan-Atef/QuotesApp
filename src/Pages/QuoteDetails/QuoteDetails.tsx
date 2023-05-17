@@ -12,7 +12,12 @@ const QuoteDetails = () => {
         -- Quotes Details Page --
       </h1>
 
-      <section className="mt-5 py-10 px-5 rounded-3xl">
+      <Link to="/" className="flex justify-end mt-10">
+        <button className=" mt-2 px-14 py-2 bg-DGreen font-bold font-raleway text-white rounded-xl border-2 hover:bg-white hover:text-DGreen hover:border-DGreen">
+          Back
+        </button>
+      </Link>
+      <section className=" py-10 px-5 rounded-3xl">
         {/* Content Section */}
         <section className="flex flex-col justify-center items-center mb-20">
           <span className="mt-5 font-extrabold text-2xl font-merriweather text-white text-center rounded-bl-3xl rounded-tr-3xl bg-DGreen px-10 py-5 border-b-4 border-b-red-500">
@@ -20,8 +25,10 @@ const QuoteDetails = () => {
           </span>
         </section>
         {/* Tags Section */}
-        <section className="flex md:flex-row flex-col items-center mb-5 gap-5">
-          <p className="font-bold font-raleway text-xl text-gray-600">Quotes Tage :- </p>
+        <section className="flex md:flex-row flex-col  mb-5 gap-5">
+          <p className="font-bold font-raleway text-xl text-gray-600">
+            Quotes Tage :-{" "}
+          </p>
           <div className="md:flex grid grid-cols-2 text-center gap-2 items-center">
             {Quote?.tags.map((quote, idx) => {
               return (
@@ -36,7 +43,7 @@ const QuoteDetails = () => {
           </div>
         </section>
         {/* Author Name */}
-        <section className="flex gap-5 mb-5 items-center mt-5">
+        <section className="flex md:flex-row flex-col gap-5 mb-5  mt-5">
           <span className="font-bold font-raleway text-xl text-gray-600">
             Author Name :-{" "}
           </span>
@@ -46,7 +53,7 @@ const QuoteDetails = () => {
           </span>
         </section>
         {/* Date Added */}
-        <section className="flex gap-5 mb-5 items-center">
+        <section className="flex md:flex-row flex-col gap-5 mb-5 ">
           <span className="font-bold font-raleway text-xl text-gray-600">
             Date Added :-{" "}
           </span>
@@ -55,7 +62,7 @@ const QuoteDetails = () => {
           </span>
         </section>
         {/* Date Modified  */}
-        <section className="flex gap-5  mb-5 items-center">
+        <section className="flex md:flex-row flex-col gap-5  mb-5 ">
           <span className="font-bold font-raleway text-xl text-gray-600">
             Date Modified :-{" "}
           </span>
@@ -64,12 +71,6 @@ const QuoteDetails = () => {
           </span>
         </section>
       </section>
-
-      <Link to="/">
-        <button className=" mt-2 px-14 py-2 bg-DGreen font-bold font-raleway text-white rounded-xl border-2 hover:bg-white hover:text-DGreen hover:border-DGreen">
-          Back
-        </button>
-      </Link>
     </>
   );
 };

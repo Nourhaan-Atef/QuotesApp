@@ -10,14 +10,14 @@ const AuthorDetails = () => {
       <h1 className="font-bold text-red-500 text-center text-2xl font-pacifico underline uppercase mt-10">
         -- Author Details Page --
       </h1>
-      <Link to="/authors" className="flex justify-end">
+      <Link to="/authors" className="flex justify-end mt-10">
         <button className=" mt-2 px-14 py-2 bg-DGreen font-bold font-raleway text-white rounded-xl border-2 hover:bg-white hover:text-DGreen hover:border-DGreen">
           Back
         </button>
       </Link>
       <section className=" py-10 px-5 rounded-3xl">
         {/* Author Name */}
-        <section className="flex gap-5 mb-5 items-center mt-5">
+        <section className="flex  md:flex-row flex-col gap-5 mb-5">
           <span className="font-bold font-raleway text-xl text-gray-600">
             Author Name :-{" "}
           </span>
@@ -27,7 +27,7 @@ const AuthorDetails = () => {
           </span>
         </section>
         {/* Author Description */}
-        <section className="flex gap-5 mb-5 items-center mt-5">
+        <section className="flex  md:flex-row flex-col gap-5 mb-5  mt-5">
           <span className="font-bold font-raleway text-xl text-gray-600">
             Author Description :-{" "}
           </span>
@@ -36,15 +36,19 @@ const AuthorDetails = () => {
             {Author?.description}
           </span>
         </section>
-        {/* Content Section */}
-        <section className="flex flex-col justify-center items-center mb-10">
+        {/* Author Bio Section */}
+        <section className="flex flex-col mb-10">
+          <span className="font-bold font-raleway text-xl text-gray-600">
+            Author Bio
+          </span>
           <span className="mt-5 font-semibold text-xl font-merriweather text-white text-center rounded-bl-3xl rounded-tr-3xl bg-gray-600 px-10 py-5 border-b-4 border-b-red-500">
             {Author?.bio}
           </span>
         </section>
-        <section className="flex gap-5 mb-5">
+        {/* Author Wikipedia Link */}
+        <section className="flex md:flex-row flex-col gap-5 mb-5 ">
           <p className="font-bold font-raleway text-xl text-gray-600">
-            Author on Wikipedia : -
+            More Info : -
           </p>
           <a
             href={`${Author?.link}`}
@@ -52,11 +56,11 @@ const AuthorDetails = () => {
             rel="noreferrer"
             className="text-yellow-600 font-semibold text-2xl font-raleway underline"
           >
-            {Author?.link}
+            Author on Wikipedia
           </a>
         </section>
         {/* Date Added */}
-        <section className="flex gap-5 mb-5 items-center">
+        <section className="flex md:flex-row flex-col gap-5 mb-5 ">
           <span className="font-bold font-raleway text-xl text-gray-600">
             Date Added :-{" "}
           </span>
@@ -65,7 +69,7 @@ const AuthorDetails = () => {
           </span>
         </section>
         {/* Date Modified  */}
-        <section className="flex gap-5  mb-5 items-center">
+        <section className="flex md:flex-row flex-col gap-5  mb-5 ">
           <span className="font-bold font-raleway text-xl text-gray-600">
             Date Modified :-{" "}
           </span>
@@ -73,7 +77,8 @@ const AuthorDetails = () => {
             {Author?.dateModified}
           </span>
         </section>
-        <section className="flex flex-col gap-5 mb-5 justify-center items-center mt-5">
+        {/* Author Quotes */}
+        <section className="flex flex-col  mb-5  mt-5">
           <span className="font-bold font-raleway text-xl text-gray-600">
             Author Quotes
           </span>
