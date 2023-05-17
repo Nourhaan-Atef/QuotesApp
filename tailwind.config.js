@@ -10,6 +10,7 @@ module.exports = {
         pacifico: "Pacifico",
         raleway: "Raleway",
         rubik: "Rubik",
+        merriweather: "Merriweather",
       },
     },
   },

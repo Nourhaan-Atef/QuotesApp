@@ -1,10 +1,15 @@
+import { useNavigate } from "react-router-dom";
 import { Authors } from "../../Models/interfaces/authors";
 import penSymbol from "../../assets/pen.svg";
+import { useAppDispatch } from "../../Store/hooks";
+import { getCertainAuthor } from "../../Middlewares/GetCertainAuthor/GetCertainAuthor";
 
 interface Props {
   AuthorsList: Authors[];
 }
 const AuthorCard: React.FC<Props> = ({ AuthorsList }) => {
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
   return (
     <>
       {AuthorsList.map((item) => {
@@ -20,7 +25,17 @@ const AuthorCard: React.FC<Props> = ({ AuthorsList }) => {
                 className="w-5 cursor-pointer"
               />
 
-              <p className="font-bold font-raleway capitalize italic underline cursor-pointer">
+              <p
+                className="font-bold font-raleway capitalize italic underline cursor-pointer"
+                onClick={() => {
+                  dispatch(getCertainAuthor({ id: item._id })).then((res) => {
+                    if (res.meta.requestStatus === "fulfilled") {
+                      navigate(`/author/${item._id}/details`);
+                      console.log(item._id);
+                    }
+                  });
+                }}
+              >
                 {item.name}
               </p>
             </section>

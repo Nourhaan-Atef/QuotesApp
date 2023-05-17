@@ -33,7 +33,7 @@ const Home = () => {
         <input
           type="search"
           placeholder="Search about quote........."
-          className="outline-none border-2 border-red-500 rounded-3xl px-5 md:py-3 py-2 md:w-96  w-full"
+          className="outline-none border-2 border-DGreen rounded-3xl px-5 md:py-3 py-2 md:w-96  w-full"
           onChange={(e) => setQuery(e.target.value)}
         />
       </div>

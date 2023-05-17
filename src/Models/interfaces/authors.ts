@@ -1,3 +1,5 @@
+import { Quotes } from "./quotes";
+
 export interface Authors {
     _id: string;
     name: string;
@@ -8,4 +10,5 @@ export interface Authors {
     slug: string;
     dateAdded: string;
     dateModified: string
+    quotes: Quotes[];
 }

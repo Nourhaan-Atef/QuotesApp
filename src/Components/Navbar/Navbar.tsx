@@ -17,7 +17,7 @@ const Navbar = () => {
         </section>
         {/* Links */}
         <section className="md:flex hidden items-center gap-5 font-medium text-lg capitalize font-raleway ">
-          <NavLink to="/home" className="link">
+          <NavLink to="/" className="link">
             home
           </NavLink>
           <NavLink to="/fav" className="link">
@@ -40,7 +40,7 @@ const Navbar = () => {
       </div>
       {showmenu ? (
         <section className="md:hidden flex flex-col items-center gap-5 font-medium text-lg capitalize py-5  ">
-          <NavLink to="/home" className="link">
+          <NavLink to="/" className="link">
             home
           </NavLink>
           <NavLink to="/fav" className="link">
