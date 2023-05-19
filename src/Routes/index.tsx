@@ -16,6 +16,8 @@ export const router = createBrowserRouter([
       { path: "/authors", element: <Authors /> },
       { path: "quote/:id/details", element: <QuoteDetails /> },
       { path: "/author/:id/details", element: <AuthorDetails /> },
+      { path: "/author/:id/details/quote/:id/details", element: <QuoteDetails /> },
+
     ],
   },
 ]);
