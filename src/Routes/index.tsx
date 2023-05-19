@@ -13,10 +13,12 @@ export const router = createBrowserRouter([
     children: [
       { path: "/", element: <Home /> },
       { path: "/fav", element: <Favorites /> },
+      { path: "/fav/quote/:id/details", element: <Favorites /> },
       { path: "/authors", element: <Authors /> },
       { path: "quote/:id/details", element: <QuoteDetails /> },
       { path: "/author/:id/details", element: <AuthorDetails /> },
       { path: "/author/:id/details/quote/:id/details", element: <QuoteDetails /> },
+      
 
     ],
   },
