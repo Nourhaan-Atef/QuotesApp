@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/logo.svg";
 import menu from "../../assets/menu.svg";
 import close from "../../assets/close.svg";
@@ -11,10 +11,12 @@ const Navbar = () => {
     <>
       <div className="flex justify-between items-center">
         {/* Logo */}
-        <section className="flex items-center uppercase">
-          <img src={logo} alt="Logo" className="w-12" />
+
+        <Link to="/" className="flex items-center uppercase">
+          <img src={logo} alt="Logo" className="w-12 cursor-pointer" />
           <p className="font-pacifico font-bold text-xl text-DGreen">Quotes</p>
-        </section>
+        </Link>
+
         {/* Links */}
         <section className="md:flex hidden items-center gap-5 font-medium text-lg capitalize font-raleway ">
           <NavLink to="/" className="link">

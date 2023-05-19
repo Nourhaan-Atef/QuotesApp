@@ -7,18 +7,30 @@ import { getCertainQuote } from "../Middlewares/GetCertainQuote/GetCertainQuote"
 interface QuotesState {
     QuotesList: Quotes[];
     loading: boolean;
-    Quote: Quotes | null
+    Quote: Quotes | null;
+    FavQuotes: Quotes[];
+}
+interface AddToFavPayload {
+    FavQuoteItem: Quotes;
 }
 
 const initialState: QuotesState = {
     QuotesList: [],
     loading: false,
-    Quote: null
+    Quote: null,
+    FavQuotes: []
 }
 const quotesSlice = createSlice({
     name: "quotes",
     initialState: initialState,
-    reducers: {},
+    reducers: {
+        addToFavorite: (state, action: PayloadAction<AddToFavPayload>) => {
+            state.FavQuotes.push(action.payload.FavQuoteItem)
+        },
+        removeFromFavorite: (state, action: PayloadAction<AddToFavPayload>) => {
+            state.FavQuotes= state.FavQuotes.filter(item => item._id !== action.payload.FavQuoteItem._id)
+        },
+    },
     extraReducers(builder) {
         // // Fetching All Quotes
         builder.addCase(fetchAllQuotes.pending, (state) => {
@@ -43,9 +55,10 @@ const quotesSlice = createSlice({
         builder.addCase(getCertainQuote.rejected, (state) => {
             state.loading = false;
         });
+        // 
     },
 
 })
-
+export const { addToFavorite,removeFromFavorite } = quotesSlice.actions
 export const QuotesReducer = quotesSlice.reducer;
 export const QouteState = (state: RootState) => state.quotes

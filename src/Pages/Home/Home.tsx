@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from "../../Store/hooks";
 import { QouteState } from "../../Slices/Quotes";
 import Card from "../../Components/Card/QuoteCard";
 import { Quotes } from "../../Models/interfaces/quotes";
+import LoaderHandling from "../../Components/LoaderHandling/LoaderHandling";
 
 const Home = () => {
   const [query, setQuery] = useState("");
@@ -14,7 +15,7 @@ const Home = () => {
     dispatch(fetchAllQuotes());
   }, [dispatch]);
   if (loading) {
-    return <div>Loading......</div>;
+    return <LoaderHandling />;
   }
   // Search Function (search by author or content)
   const search = (QuotesList: Quotes[]) => {

@@ -4,6 +4,7 @@ import { fetchAllAuthors } from "../../Middlewares/FetchAllAuthors/FetchAllAutho
 import { AuthorState } from "../../Slices/Authors";
 import AuthorCard from "../../Components/Card/AuthorCard";
 import { Authors } from "../../Models/interfaces/authors";
+import LoaderHandling from "../../Components/LoaderHandling/LoaderHandling";
 
 const AuthorsPage = () => {
   const [query, setQuery] = useState("");
@@ -13,7 +14,7 @@ const AuthorsPage = () => {
     dispatch(fetchAllAuthors());
   }, [dispatch]);
   if (loading) {
-    return <div>Loading......</div>;
+    return <LoaderHandling />;
   }
   const search = (AuthorsList: Authors[]) => {
     return AuthorsList.filter(

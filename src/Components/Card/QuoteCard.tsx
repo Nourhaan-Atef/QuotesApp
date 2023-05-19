@@ -1,20 +1,36 @@
-import { useState } from "react";
 import { Quotes } from "../../Models/interfaces/quotes";
 import quoteSymbol from "../../assets/quoteSymbol.png";
 import chossenStar from "../../assets/chossenStar.svg";
 import normalStar from "../../assets/normalStar.svg";
 import openQuote from "../../assets/open.svg";
 import { useNavigate } from "react-router-dom";
-import { useAppDispatch } from "../../Store/hooks";
+import { useAppDispatch, useAppSelector } from "../../Store/hooks";
 import { getCertainQuote } from "../../Middlewares/GetCertainQuote/GetCertainQuote";
+import {
+  QouteState,
+  addToFavorite,
+  removeFromFavorite,
+} from "../../Slices/Quotes";
 
 interface Props {
   QuotesList: Quotes[] | undefined;
 }
 const Card: React.FC<Props> = ({ QuotesList }) => {
-  const [fav, setFav] = useState(false);
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
+  const { FavQuotes } = useAppSelector(QouteState);
+
+  const HandleFavorites = (item: Quotes) => {
+    let FavQuotesIds = FavQuotes.map((favQuote) => {
+      return favQuote._id;
+    });
+    if (!FavQuotesIds.includes(item._id)) {
+      dispatch(addToFavorite({ FavQuoteItem: item }));
+    } else {
+      dispatch(removeFromFavorite({ FavQuoteItem: item }));
+    }
+  };
+  console.log(FavQuotes);
   return (
     <>
       {QuotesList?.map((item) => {
@@ -40,10 +56,16 @@ const Card: React.FC<Props> = ({ QuotesList }) => {
                   }}
                 />
                 <img
-                  src={`${fav ? chossenStar : normalStar}`}
+                  src={`${
+                    FavQuotes.map((favQuote) => {
+                      return favQuote._id;
+                    }).includes(item._id)
+                      ? chossenStar
+                      : normalStar
+                  }`}
                   alt="Fav Icon"
                   className="w-4 cursor-pointer"
-                  onClick={() => setFav(!fav)}
+                  onClick={() => HandleFavorites(item)}
                 />
               </div>
             </section>
@@ -52,7 +74,7 @@ const Card: React.FC<Props> = ({ QuotesList }) => {
                 {`“ ${item.content} ”`}
               </p>
             </section>
-            <section className="grid md:grid-cols-3 grid-cols-2 gap-1 text-center">
+            {/* <section className="grid md:grid-cols-3 grid-cols-2 gap-1 text-center">
               {item.tags.map((tag, idx) => {
                 return (
                   <p
@@ -63,7 +85,7 @@ const Card: React.FC<Props> = ({ QuotesList }) => {
                   </p>
                 );
               })}
-            </section>
+            </section> */}
           </div>
         );
       })}

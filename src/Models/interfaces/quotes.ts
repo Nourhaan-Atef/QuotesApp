@@ -6,5 +6,6 @@ export interface Quotes {
     authorSlug: string;
     length: number;
     dateAdded: string;
-    dateModified: string
+    dateModified: string;
+
 }
